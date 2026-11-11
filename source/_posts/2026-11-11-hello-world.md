@@ -5,7 +5,7 @@ categories:
 tags:
   - 建站
   - 随笔
-cover: /img/avatar.svg
+cover: /img/avatar.jpg
 description: 旧博客搬了新家，这次从零开始。
 abbrlink: 299cecde
 date: 2026-11-11 10:30:00
