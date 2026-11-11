@@ -1,5 +1,32 @@
 # 主题 anzhiyu 覆盖配置（与 node_modules/hexo-theme-anzhiyu/_config.yml 深度合并）
 
+# CDN 覆盖：twikoo 前端必须用 2.0.x 与 2.0 后端协议匹配（主题默认 1.6.44 不兼容）
+CDN:
+  option:
+    twikoo: https://cdn.cbd.int/twikoo@2.0.17/dist/twikoo.all.min.js
+
+# 评论系统：Twikoo（后端部署在 Cloudflare Workers + D1）
+comments:
+  use: Twikoo
+  text: true
+  lazyload: false
+  count: false
+  card_post_count: false
+
+twikoo:
+  envId: https://twikoo.delicious-pigeonking.blog
+  region:
+  visitor: false
+  option:
+
+# 留言弹幕（基于 Twikoo 评论数据滚动）
+comment_barrage_config:
+  enable: true
+  maxBarrage: 1
+  barrageTime: 4000
+  accessToken: ""
+  mailMd5: ""
+
 # 头像
 avatar:
   img: /img/avatar.jpg
