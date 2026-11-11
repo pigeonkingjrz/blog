@@ -1,0 +1,117 @@
+# ============================================================
+#  Hexo 站点配置 —— Delicious-PigeonKing
+#  域名/部署相关项标注了 TODO，绑定域名后改这里即可
+# ============================================================
+
+# ---------- 站点 ----------
+title: Delicious-PigeonKing
+subtitle: '笔耕不辍，心有远方。'
+description: '关于学习、音游与生活，也有文章翻译、日常和分享。'
+keywords: 音游, Arcaea, 学习, 生活, 博客
+author: PigeonKing
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# ---------- URL ----------
+# TODO: 换成你的正式域名（末尾不要加斜杠）
+url: https://www.delicious-pigeonking.blog
+permalink: posts/:abbrlink/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+# ---------- 目录 ----------
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - 'CNAME'
+
+# ---------- 写作 ----------
+new_post_name: :year-:month-:day-:title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: true
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# ---------- 首页与分页 ----------
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# ---------- 日期格式 ----------
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+# ---------- 分页 ----------
+per_page: 10
+pagination_dir: page
+
+# ---------- 扩展 ----------
+theme: anzhiyu
+
+# 站内搜索（配合主题 local_search）
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+
+# 站点地图
+sitemap:
+  path: sitemap.xml
+
+# abbrlink：把文章链接变成 /posts/xxxx/ 形式，避免中文 URL
+abbrlink:
+  alg: crc32
+  rep: hex
+  drafts: false
+
+# 字数统计（主题 wordcount 用）
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+
+# ---------- 部署 ----------
+# 使用 Cloudflare Pages：无需配置 deploy，推送代码后平台自动构建
+# 若想改用 GitHub Pages，取消下面注释并把 url 改成 *.github.io
+# deploy:
+#   type: git
+#   repo: git@github.com:Delicious-PigeonKing/Delicious-PigeonKing.github.io.git
+#   branch: main
+deploy: {}
