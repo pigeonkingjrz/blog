@@ -46,21 +46,27 @@ description: 一句话摘要，会显示在首页卡片上
 
 ## 三、部署到 Cloudflare Pages
 
-### 方式 A：控制台连 Git（推荐，推代码自动部署）
+> **现状（2026-11-11 已上线）**：项目名 `blog`，生产地址 **<https://www.delicious-pigeonking.blog>**，备用 `https://blog-5xy.pages.dev`。
+> 当前采用「本地构建 + wrangler 直传」方式发布（非 Git 自动构建）。
 
-1. 把 `blog/` 目录推到 GitHub 仓库（见第四节）。
-2. 打开 <https://dash.cloudflare.com> → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**。
-3. 选中该仓库，构建配置填：
-   | 项                      | 值                   |
-   | ---------------------- | ------------------- |
-   | Framework preset       | None                |
-   | Build command          | `npx hexo generate` |
-   | Build output directory | `public`            |
-   | 环境变量                   | `NODE_VERSION = 20` |
-4. 点 **Save and Deploy**，几分钟后拿到 `xxx.pages.dev` 的临时域名。
-5. 之后每次 `git push` 都会自动重新构建发布。
+### 日常发布（当前方式，最快）
 
-### 方式 B：GitHub Actions 手动上传
+```bash
+cd blog
+npx hexo clean && npx hexo generate
+CLOUDFLARE_API_TOKEN=<token> CLOUDFLARE_ACCOUNT_ID=2a0e102650d3ff9565d8d4dbe606f5e5 \
+  npx wrangler pages deploy public --project-name=blog --branch=main
+```
+
+> 注意：本机访问 GitHub/Cloudflare 时需先 `unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy` 绕过内置代理，否则连接超时。
+
+### 可选：改成 Git 自动构建
+
+1. Cloudflare 控制台 → **Workers & Pages** → `blog` → **Settings → Build** → 关联 GitHub 仓库 `pigeonkingjrz/blog`。
+2. 构建命令 `npx hexo generate`，输出目录 `public`，环境变量 `NODE_VERSION=20`。
+3. 之后 `git push` 即自动部署。
+
+### 可选：GitHub Actions 上传
 
 `.github/workflows/deploy.yml` 已写好。在仓库 **Settings → Secrets and variables → Actions** 里加两个 secret：
 

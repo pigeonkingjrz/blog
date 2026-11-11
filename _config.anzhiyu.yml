@@ -1,0 +1,13 @@
+# 主题 anzhiyu 覆盖配置（与 node_modules/hexo-theme-anzhiyu/_config.yml 深度合并）
+
+# 头像
+avatar:
+  img: /img/avatar.jpg
+  effect: false
+
+# 加载动画头像
+preloader:
+  enable: true
+  source: 3
+  pace_css_url:
+  avatar: /img/avatar.jpg
