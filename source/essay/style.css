@@ -1,0 +1,212 @@
+/* 随笔捡拾 · 卡片墙样式（配合 /essay/main.js 使用） */
+
+.essay-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.essay-hero {
+  text-align: center;
+  padding: 1.2rem 0 0.4rem;
+}
+
+.essay-hero-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.essay-hero-sub {
+  color: var(--anzhiyu-secondtext, #858585);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.essay-stats {
+  text-align: center;
+  color: var(--anzhiyu-secondtext, #858585);
+  font-size: 0.85rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.essay-stats b {
+  color: var(--anzhiyu-main, #425aef);
+  font-size: 1.05em;
+  padding: 0 0.15em;
+}
+
+.essay-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.6rem 0 1.4rem;
+}
+
+.essay-chip {
+  border: 1px solid var(--anzhiyu-secondtext, #999);
+  background: transparent;
+  color: var(--anzhiyu-secondtext, #666);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  user-select: none;
+}
+
+.essay-chip:hover {
+  color: var(--anzhiyu-main, #425aef);
+  border-color: var(--anzhiyu-main, #425aef);
+}
+
+.essay-chip.active {
+  background: var(--anzhiyu-main, #425aef);
+  border-color: var(--anzhiyu-main, #425aef);
+  color: #fff;
+}
+
+.essay-wall {
+  columns: 3 260px;
+  column-gap: 16px;
+}
+
+.essay-card {
+  break-inside: avoid;
+  position: relative;
+  background: #fffdf5;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.6rem 1.1rem 0.9rem;
+  margin: 0 0 16px;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.essay-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  z-index: 2;
+}
+
+/* 顶部的「胶带」 */
+.essay-card::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 74px;
+  height: 20px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(255, 214, 102, 0.5);
+  border-left: 1px dashed rgba(0, 0, 0, 0.1);
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.essay-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #9a8f7a;
+  margin-bottom: 0.55rem;
+}
+
+.essay-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(66, 90, 239, 0.09);
+  color: var(--anzhiyu-main, #425aef);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+
+.essay-content {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #4b463c;
+  margin: 0 0 0.8rem;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+}
+
+.essay-author {
+  text-align: right;
+  font-size: 0.82rem;
+  color: #b0a58e;
+  font-style: italic;
+}
+
+/* 投稿卡 */
+.essay-cta {
+  margin-top: 1.6rem;
+  border: 1.5px dashed var(--anzhiyu-main, #425aef);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  text-align: center;
+  background: var(--anzhiyu-card-bg, #fff);
+}
+
+.essay-cta-title {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.essay-cta-sub {
+  color: var(--anzhiyu-secondtext, #858585);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  margin-bottom: 0.9rem;
+}
+
+.essay-cta-btn {
+  display: inline-block;
+  background: var(--anzhiyu-main, #425aef);
+  color: #fff !important;
+  border-radius: 999px;
+  padding: 8px 26px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.essay-cta-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.essay-empty {
+  text-align: center;
+  color: var(--anzhiyu-secondtext, #858585);
+  padding: 3rem 0;
+}
+
+/* 深色模式（anzhiyu 用 data-theme="dark"） */
+[data-theme="dark"] .essay-card {
+  background: #2c2c30;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .essay-card::before {
+  background: rgba(255, 214, 102, 0.22);
+}
+
+[data-theme="dark"] .essay-content {
+  color: #d8d4ca;
+}
+
+[data-theme="dark"] .essay-card-meta {
+  color: #8b8577;
+}
+
+[data-theme="dark"] .essay-place {
+  background: rgba(120, 140, 255, 0.16);
+}
+
+[data-theme="dark"] .essay-author {
+  color: #7d7563;
+}

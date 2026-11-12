@@ -70,6 +70,14 @@ nav_music:
 # /music 音乐馆默认加载的歌单来源：nav_music = 与胶囊同一个歌单
 music_page_default: nav_music
 
+# 首页顶部：原「新品主题 Theme-AnZhiYu」主题展示卡改为随笔捡拾入口
+home_top:
+  banner:
+    tips: 随笔捡拾
+    title: 五湖四海的碎片
+    image: /img/essay.svg
+    link: /essay/
+
 # ============ 导航菜单 ============
 menu:
   文章:
@@ -81,5 +89,6 @@ menu:
     留言板: /comments/ || anzhiyu-icon-envelope
   我的:
     音乐馆: /music/ || anzhiyu-icon-music
+    随笔捡拾: /essay/ || anzhiyu-icon-pencil
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26305a"/>
+      <stop offset="0.45" stop-color="#5d4a7e"/>
+      <stop offset="0.78" stop-color="#c97b6d"/>
+      <stop offset="1" stop-color="#e8a06a"/>
+    </linearGradient>
+    <linearGradient id="scrap" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf3"/>
+      <stop offset="1" stop-color="#f3e8cf"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9b8" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#sky)"/>
+  <circle cx="860" cy="430" r="230" fill="url(#sun)"/>
+  <circle cx="860" cy="430" r="52" fill="#ffedb0" opacity="0.9"/>
+
+  <!-- 星与飞鸟 -->
+  <g fill="#fff" opacity="0.85">
+    <circle cx="120" cy="90" r="2.2"/><circle cx="300" cy="55" r="1.6"/>
+    <circle cx="480" cy="120" r="2"/><circle cx="980" cy="80" r="2.4"/>
+    <circle cx="1100" cy="160" r="1.8"/><circle cx="700" cy="60" r="1.6"/>
+    <circle cx="180" cy="210" r="1.6"/><circle cx="1040" cy="260" r="1.6"/>
+  </g>
+  <g stroke="#3a3460" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7">
+    <path d="M420 200 q14 -12 28 0 q14 -12 28 0"/>
+    <path d="M500 165 q11 -9 22 0 q11 -9 22 0"/>
+  </g>
+
+  <!-- 远山 -->
+  <path d="M0 560 Q180 500 380 545 T760 540 T1200 520 L1200 680 L0 680 Z" fill="#43355e" opacity="0.75"/>
+  <path d="M0 615 Q260 570 560 605 T1200 595 L1200 680 L0 680 Z" fill="#241d3d"/>
+
+  <!-- 纸片 1 -->
+  <g transform="translate(150 240) rotate(-7)">
+    <rect width="190" height="130" rx="6" fill="url(#scrap)"/>
+    <rect x="70" y="-12" width="52" height="22" rx="3" fill="#ffd666" opacity="0.75" transform="rotate(-4 96 0)"/>
+    <g stroke="#a89877" stroke-width="4" stroke-linecap="round">
+      <line x1="26" y1="36" x2="150" y2="36"/><line x1="26" y1="60" x2="132" y2="60"/><line x1="26" y1="84" x2="118" y2="84"/>
+    </g>
+    <circle cx="158" cy="104" r="10" fill="none" stroke="#c9b892" stroke-width="3"/>
+  </g>
+
+  <!-- 纸片 2 -->
+  <g transform="translate(430 330) rotate(5)">
+    <rect width="200" height="140" rx="6" fill="url(#scrap)"/>
+    <rect x="74" y="-12" width="54" height="22" rx="3" fill="#9fd6c9" opacity="0.8" transform="rotate(3 101 0)"/>
+    <g stroke="#9fae9c" stroke-width="4" stroke-linecap="round">
+      <line x1="28" y1="40" x2="164" y2="40"/><line x1="28" y1="64" x2="120" y2="64"/><line x1="28" y1="88" x2="146" y2="88"/>
+    </g>
+    <path d="M160 104 l8 22 M160 104 a11 11 0 1 1 -0.1 0" fill="#d2694f" stroke="none"/>
+  </g>
+
+  <!-- 纸片 3 -->
+  <g transform="translate(700 200) rotate(-3)">
+    <rect width="180" height="122" rx="6" fill="url(#scrap)" opacity="0.96"/>
+    <rect x="64" y="-12" width="50" height="21" rx="3" fill="#f2a4a4" opacity="0.8" transform="rotate(-5 89 0)"/>
+    <g stroke="#b0a288" stroke-width="4" stroke-linecap="round">
+      <line x1="24" y1="34" x2="144" y2="34"/><line x1="24" y1="58" x2="112" y2="58"/><line x1="24" y1="82" x2="130" y2="82"/>
+    </g>
+  </g>
+
+  <!-- 定位图钉 -->
+  <g transform="translate(560 160) rotate(8)">
+    <path d="M0 0 C-16 -22 -16 -40 0 -46 C16 -40 16 -22 0 0 Z" fill="#e4574d"/>
+    <circle cx="0" cy="-32" r="7" fill="#fff" opacity="0.9"/>
+    <ellipse cx="0" cy="6" rx="9" ry="3.4" fill="#000" opacity="0.25"/>
+  </g>
+  <g transform="translate(950 330) rotate(-6)" opacity="0.92">
+    <path d="M0 0 C-13 -18 -13 -33 0 -38 C13 -33 13 -18 0 0 Z" fill="#f0a35e"/>
+    <circle cx="0" cy="-26" r="5.5" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <!-- 纸飞机与航线 -->
+  <g transform="translate(1010 120) rotate(-14)">
+    <path d="M0 0 L64 14 L18 26 L10 44 Z" fill="#fff" opacity="0.95"/>
+    <path d="M0 0 L18 26 L10 44" fill="#dcd4c2" opacity="0.95"/>
+  </g>
+  <path d="M640 260 C 760 210 880 170 1000 128" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round" fill="none" opacity="0.75"/>
+
+  <!-- 底部压暗，保证标题白字可读 -->
+  <rect width="1200" height="680" fill="url(#sky)" opacity="0"/>
+  <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0.55" stop-color="#000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0.5"/>
+  </linearGradient>
+  <rect width="1200" height="680" fill="url(#fade)"/>
+</svg>
