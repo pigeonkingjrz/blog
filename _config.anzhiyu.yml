@@ -122,3 +122,74 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     - <script>(function(){function f(){var e=document.getElementById("author-info__sayhi");if(e)e.textContent="欢迎光临"}window.addEventListener("load",f);document.addEventListener("DOMContentLoaded",f);document.addEventListener("pjax:complete",f)})();</script>
+
+# ============ 页脚 ============
+footer:
+  # 版权信息（footerBar 开启时显示在底栏）
+  owner:
+    enable: true
+    since: 2026
+  # 绿点状态文字（值必须加引号，避免 YAML 把 #4caf50 当注释截断）
+  custom_text: '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#4caf50;margin-right:6px;box-shadow:0 0 6px #4caf50"></span>所有业务正常'
+  runtime:
+    enable: false
+  # 社交图标行（中间为头像，点击回顶部）
+  socialBar:
+    enable: true
+    centerImg: /img/avatar.jpg
+    left:
+      - title: 邮箱
+        link: mailto:2581705325@qq.com
+        icon: anzhiyu-icon-envelope
+      - title: RSS
+        link: atom.xml
+        icon: anzhiyu-icon-rss
+    right:
+      - title: Github
+        link: https://github.com/pigeonkingjrz
+        icon: anzhiyu-icon-github
+      - title: 音乐馆
+        link: /music/
+        icon: anzhiyu-icon-music
+      - title: 留言板
+        link: /comments/
+        icon: anzhiyu-icon-pencil
+  # 链接分栏 + 友链随机换一批
+  list:
+    enable: true
+    randomFriends: 3
+    project:
+      - title: 文章
+        links:
+          - title: 归档
+            link: /archives/
+          - title: 分类
+            link: /categories/
+          - title: 标签
+            link: /tags/
+      - title: 导航
+        links:
+          - title: 随笔捡拾
+            link: /essay/
+          - title: 音乐馆
+            link: /music/
+          - title: 留言板
+            link: /comments/
+      - title: 关于
+        links:
+          - title: 关于本人
+            link: /about/
+          - title: 友人帐
+            link: /link/
+  # 底部版权栏
+  footerBar:
+    enable: true
+    authorLink: /
+    cc:
+      enable: false
+      link: /about/
+    linkList:
+      - link: /comments/
+        text: 留言
+      - link: /
+        text: 主页
