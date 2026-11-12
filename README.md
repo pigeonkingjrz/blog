@@ -109,29 +109,69 @@ git push -u origin main
 
 > **绑定完成后 `_config.yml` 的 `url` 已改为 `https://www.delicious-pigeonking.blog`，无需再改。**
 
-## 六、接评论（Twikoo，免费）
+## 六、评论系统（Twikoo，已上线）
 
-当前评论是关闭状态（`_config.anzhiyu.yml` 中 `comments.use` 为空）。要开的话：
+已在 **Cloudflare Workers + D1** 上自建，不依赖 Vercel/第三方账号：
 
-1. 打开 <https://twikoo.js.org/quick-start.html>，按「Vercel 部署」一键部署，得到一个 `https://xxx.vercel.app` 地址。
-2. 编辑 `_config.anzhiyu.yml`：
+| 项 | 值 |
+| --- | --- |
+| 后端地址 | `https://twikoo.delicious-pigeonking.blog`（Worker：`twikoo-worker/`） |
+| 存储 | D1 数据库 `twikoo`（评论永久存在自己账号下） |
+| 管理 | 任意文章页评论区 → 小齿轮 → 用管理员密码登录 |
 
-```yaml
-comments:
-  use: Twikoo
-  text: true
+前端引用的 `twikoo@2.0.17` 是通过 `_config.anzhiyu.yml` 的 `CDN.option.twikoo` 覆盖的——主题默认的 1.6.44 与 2.0 后端协议不兼容，**别改回默认版本**。
 
-twikoo:
-  envId: https://xxx.vercel.app
-  region:
-  visitor: true
+留言弹幕（`comment_barrage_config`）直接吃这份评论数据，评论多了弹幕自然滚动。
+
+## 七、音乐系统
+
+三层结构，全部走主题原生能力 + 一个自建代理：
+
+```
+浏览器 ──> MetingJS ──> music.delicious-pigeonking.blog/api   （Cloudflare Worker，边缘缓存元数据）
+                              └─> 上游音源 API ──> 302 ──> 网易云 CDN 音频
 ```
 
-1. `npm run clean && npm run build` 重新构建。
+| 组件 | 位置 | 说明 |
+| --- | --- | --- |
+| 音乐胶囊（左下角常驻） | `_config.anzhiyu.yml` → `nav_music` | 全站不中断播放，`M` 键开合 |
+| 音乐馆页面 | `source/music/index.md` + `music_page_default` | 大封面 / 歌词 / 随机播 / 切歌单，导航「我的 → 音乐馆」进入 |
+| 文章内嵌播放器 | 文章 Markdown 里直接写 `<meting-js>` | 见下方示例 |
+| 音乐 API 代理 | `../music-api/`（独立 Worker） | 元数据缓存 1 小时，音频 302 直连，不中转流量 |
 
-> 不想折腾后端的话，可以换 **giscus**（基于 GitHub Discussions，纯前端）：主题配置里填 `repo` / `repo_id` / `category_id`，把 `comments.use` 改成 `Giscus`。
+### 换成你自己的歌单
 
-## 七、常用定制位置
+1. 在网易云打开歌单 → 分享 → 复制链接，形如 `https://music.163.com/playlist?id=123456789`，其中 `123456789` 就是歌单 id。
+2. 改 `_config.anzhiyu.yml`：
+
+```yaml
+nav_music:
+  id: 123456789                       # ← 你的歌单 id
+  all_playlist: https://music.163.com/#/playlist?id=123456789
+```
+
+3. `npx hexo clean && npx hexo generate`，再部署。音乐馆和胶囊会同时换成新歌单（因为 `music_page_default: nav_music`）。
+
+### 在文章里插入播放器
+
+```html
+<!-- 整张歌单 -->
+<meting-js server="netease" type="playlist" id="123456789"
+  mutex="true" preload="none" order="list" list-folded="true"
+  theme="var(--anzhiyu-main)" list-max-height="360px"></meting-js>
+
+<!-- 单曲：id 换成歌曲 id -->
+<meting-js server="netease" type="song" id="1973665667"
+  mutex="true" preload="none" theme="var(--anzhiyu-main)"></meting-js>
+```
+
+`mutex="true"` 保证多个播放器不会同时响。
+
+### 上游挂了怎么办
+
+`music-api/src/index.js` 顶部 `UPSTREAM` 一行就是上游地址，改成任何兼容 Meting 协议的实例即可（如 `https://api.i-meto.com/meting/`），然后在该目录 `npx wrangler deploy`。博客端不用动。
+
+## 八、常用定制位置
 
 | 想改什么               | 改哪里                                                                                 |
 | ------------------ | ----------------------------------------------------------------------------------- |
@@ -143,8 +183,9 @@ twikoo:
 | 首页大图 / 各页顶部图       | `_config.anzhiyu.yml` → `index_img`、`default_top_img`、单个页面 front-matter 的 `top_img` |
 | 主题色                | `_config.anzhiyu.yml` → 搜索 `mainTone` 或 `source/css/var.css` 内的 CSS 变量              |
 | 页脚版权起始年份           | `_config.anzhiyu.yml` → `footer.owner.since`                                        |
+| 歌单 id / 音量 / 音乐馆    | `_config.anzhiyu.yml` → `nav_music`（详见第七节）                                          |
 
-## 八、目录结构
+## 九、目录结构
 
 ```
 blog/
@@ -162,7 +203,7 @@ blog/
 └── public/                  # 构建产物（已 gitignore）
 ```
 
-## 九、常见问题
+## 十、常见问题
 
 **Q：改了配置不生效？**  
 先 `npm run clean` 再 `npm run build`。浏览器强刷（Cmd+Shift+R）。
@@ -173,6 +214,9 @@ blog/
 **Q：文章链接是 `/posts/xxxx/` 这种奇怪字符？**  
 正常，这是 `hexo-abbrlink` 生成的短链（crc32），比中文 URL 更稳、更方便分享。想改回日期形式就删掉 `_config.yml` 里的 `abbrlink` 段，并把 `permalink` 改成 `:year/:month/:day/:title/`。
 
+**Q：音乐播放器转圈 / 不出声？**  
+先直接访问 `https://music.delicious-pigeonking.blog/health` 看 API 是否活着；再看浏览器控制台有没有 CORS 报错。若上游音源挂了，改 `music-api/src/index.js` 的 `UPSTREAM` 重新部署即可（第七节末）。
+
 **Q：部署后样式错乱？**  
 检查 Pages 的构建输出目录必须是 `public`，且 `url` 与真实域名一致。
 
@@ -182,8 +226,10 @@ blog/
 
 - [x] 把 `_config.yml` 的 `url` 改成真实域名（`https://www.delicious-pigeonking.blog` ✅）
 - [x] 注册域名 `delicious-pigeonking.blog`（已在 Spaceship 购得，1 年）
-- [ ] 创建 GitHub 仓库并推送
-- [ ] Cloudflare Pages 连接仓库并首次部署
-- [ ] 绑定域名 + DNS 记录
-- [ ] （可选）部署 Twikoo 并开启评论
-- [ ] 换掉头像 `source/img/avatar.svg`、补几张封面图
+- [x] Cloudflare Pages 部署 + 绑定域名 + DNS 记录
+- [x] 部署 Twikoo（Workers + D1）并开启评论与弹幕
+- [x] 换掉头像、favicon、文章封面
+- [x] 音乐系统（音乐胶囊 + 音乐馆 + 文章内嵌播放器 + 自建 API）
+- [ ] **把歌单换成自己的**（`nav_music.id`，见第七节）
+- [ ] 首次进评论区小齿轮设置 Twikoo 管理员密码
+- [ ] 旧站 `pigeonkingjrz.github.io` 推 301 跳转（文件已备在 `../oldsite-redirect/`）

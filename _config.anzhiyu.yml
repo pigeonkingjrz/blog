@@ -4,6 +4,8 @@
 CDN:
   option:
     twikoo: https://cdn.cbd.int/twikoo@2.0.17/dist/twikoo.all.min.js
+    # 音乐 API：自建 Cloudflare Worker 代理（音乐元数据走边缘缓存，音频 302 直连音源）
+    meting_api: "https://music.delicious-pigeonking.blog/api?server=:server&type=:type&id=:id&r=:r"
 
 # 评论系统：Twikoo（后端部署在 Cloudflare Workers + D1）
 comments:
@@ -38,3 +40,32 @@ preloader:
   source: 3
   pace_css_url:
   avatar: /img/avatar.jpg
+
+# ============ 音乐系统 ============
+# 左下角音乐胶囊（全站常驻播放器）
+nav_music:
+  enable: true
+  console_widescreen_music: false
+  # 歌单 id：网易云歌单（替换成自己的歌单 id 即可，见 README 音乐章节）
+  id: 3778678
+  server: netease
+  volume: 0.7
+  # 「播放全部」跳转的网易云歌单地址
+  all_playlist: https://music.163.com/#/playlist?id=3778678
+
+# /music 音乐馆默认加载的歌单来源：nav_music = 与胶囊同一个歌单
+music_page_default: nav_music
+
+# ============ 导航菜单 ============
+menu:
+  文章:
+    归档: /archives/ || anzhiyu-icon-box-archive
+    分类: /categories/ || anzhiyu-icon-shapes
+    标签: /tags/ || anzhiyu-icon-tags
+  友链:
+    友人帐: /link/ || anzhiyu-icon-link
+    留言板: /comments/ || anzhiyu-icon-envelope
+  我的:
+    音乐馆: /music/ || anzhiyu-icon-music
+  关于:
+    关于本人: /about/ || anzhiyu-icon-paper-plane
