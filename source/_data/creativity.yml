@@ -1,0 +1,20 @@
+# 技能卡片图标列表（关于页「技能 · 开启创造力」）
+- creativity_list:
+    - name: HTML
+      icon: /img/skills/html.svg
+      color: "#e34f26"
+    - name: CSS
+      icon: /img/skills/css.svg
+      color: "#1572b6"
+    - name: JavaScript
+      icon: /img/skills/javascript.svg
+      color: "#f7df1e"
+    - name: Python
+      icon: /img/skills/python.svg
+      color: "#3776ab"
+    - name: 音游
+      icon: /img/skills/rhythm.svg
+      color: "#8e6bf1"
+    - name: 明日方舟
+      icon: /img/skills/arknights.svg
+      color: "#231f20"

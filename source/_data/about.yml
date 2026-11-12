@@ -1,0 +1,112 @@
+# 关于页数据（驱动 theme about 模板的全部卡片）
+- name: Delicious-PigeonKing
+  avatarImg: /img/avatar.jpg
+  description: 是一名 大学生 / 学生开发者 / 业余小白
+  helloAbout: HELLO WORLD!
+
+  # 头像两侧的小标签
+  avatarSkills:
+    left:
+      - 🎮 音游玩家
+      - 💻 爱折腾电脑
+      - 📚 笔记收藏家
+      - 🍖 食堂美食鉴赏家
+    right:
+      - 🐺 明日方舟博士
+      - 🎵 深夜歌单循环
+      - ✍️ 随手写点东西
+      - 🚀 正在学习新东西
+
+  # 「追求」卡
+  aboutsiteTips:
+    tips: 追求
+    title1: 源于
+    title2: 热爱而去 感受
+    word:
+      - 生活
+      - 代码
+      - 音乐
+
+  # 「技能」卡
+  skillsTips:
+    tips: 技能
+    title: 开启创造力
+
+  # 「生涯」卡
+  careers:
+    tips: 生涯
+    title: 无限进步
+    list:
+      - color: "#6db7ff"
+        desc: 大学在读
+      - color: "#4caf50"
+        desc: 正在学习许多新东西！
+      - color: "#8e6bf1"
+        desc: 前端与音游双修
+
+  # 「地图」卡 + 「个人简介」卡
+  map:
+    background: /img/essay.svg
+    backgroundDark: /img/essay.svg
+    title: 家在
+    StrengthenTitle: 天津
+  selfInfo:
+    selfInfoTips1: 博客建立于
+    selfInfoContentYear: 2026
+    selfInfoTips2: 目前坐标
+    selfInfoContent2: 天津
+    selfInfoTips3: 当前状态
+    selfInfoContent3: 大学生
+
+  # 「性格」卡（16personalities ENFJ 主人公）
+  personalities:
+    author_name: ENFJ 主人公
+    personality_type: ENFJ-T / Protagonist
+    personality_type_color: "#33a474"
+    personality_img: /img/skills/enfj.svg
+    photo_url: /img/lappland/badge.jpg
+    name_url: https://www.16personalities.com/ch/enfj%E4%BA%BA%E6%A0%BC
+
+  # 「座右铭」+「加成」卡
+  maxim:
+    maxim_tips: 座右铭
+    maxim_top: 芳华待灼，
+    maxim_bottom: 砥砺深耕
+  buff:
+    buff_tips: 特长
+    buff_top: 热爱可抵岁月漫长，
+    buff_bottom: 摸鱼也能摸出心得
+
+  # 「游戏爱好」卡
+  game:
+    game_tips: 游戏爱好
+    game_title: 明日方舟 & Arcaea
+    game_uid: 罗德岛的博士 · Arcaea 摸鱼玩家（ptt 慢慢爬）
+    game_bg: /img/lappland/cover.jpg
+
+  # 「收藏」卡
+  comic:
+    comic_tips: 收藏
+    comic_title: 我的收藏
+    comic_list:
+      - name: 致拉普兰德：生日快乐
+        href: /posts/a27cb87/
+        cover: /img/lappland/cover.jpg
+      - name: 应援现场报道
+        href: /posts/a27cb87/
+        cover: /img/lappland/badge.jpg
+      - name: 痛包全家福
+        href: /posts/a27cb87/
+        cover: /img/lappland/itabag.jpg
+
+  # 「关注偏好」+「音乐偏好」卡
+  like:
+    like_tips: 关注偏好
+    like_title: 音游与美食
+    like_bottom: 音游、辣白菜五花肉烤盘饭、以及一切美好事物
+    like_bg: /img/lappland/desk.jpg
+  music:
+    music_tips: 音乐偏好
+    music_title: 深夜歌单循环中
+    music_link: /music/
+    music_bg: /img/playlist-cover.jpg
