@@ -72,11 +72,19 @@ music_page_default: nav_music
 
 # 首页顶部：原「新品主题 Theme-AnZhiYu」主题展示卡改为随笔捡拾入口
 home_top:
+  # 左侧标题区（关闭 peoplecanvas 后显示文字，否则只渲染空白画布）
+  title: 鸽王的小站
+  subTitle: 记录代码、美食与热爱
+  siteText: 天津 · 欢迎随便逛逛
   banner:
     tips: 随笔捡拾
     title: 五湖四海的碎片
     image: /img/essay.svg
     link: /essay/
+
+# 关闭主题默认的人群 canvas 动画（其素材来自米游社 CDN，加载失败时左侧首页卡片呈空白）
+peoplecanvas:
+  enable: false
 
 # ============ 导航菜单 ============
 menu:
