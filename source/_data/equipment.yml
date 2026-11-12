@@ -1,0 +1,50 @@
+# 我的装备页数据（驱动 theme equipment 模板）
+- class_name: 好物
+  description: 实物装备推荐
+  tip: 跟 Delicious-PigeonKing 一起享受科技带来的乐趣
+  top_background: /img/lappland/desk.jpg
+  good_things:
+    - title: 生产力
+      description: 提升自己生产效率的硬件设备
+      equipment_list:
+        - name: iPhone 17 Pro
+          specification: 原色钛金属
+          description: 主力机，拍照、刷题、刷 B 站全靠它。
+          image: /img/equipment/iphone.svg
+          link: https://www.apple.com.cn/iphone/
+        - name: iPad Pro 11
+          specification: 深空灰
+          description: 上课记笔记 + 画图神器，配合 Apple Pencil 使用体验极佳。
+          image: /img/equipment/ipad.svg
+          link: https://www.apple.com.cn/ipad-pro/
+        - name: MacBook Pro 14 2026
+          specification: 深空黑
+          description: 写代码、写博客、剪视频的主力生产力设备。
+          image: /img/equipment/macbook.svg
+          link: https://www.apple.com.cn/macbook-pro/
+    - title: 影像装备
+      description: 记录生活的眼睛
+      equipment_list:
+        - name: 佳能 500D
+          specification: 单反 / 套机镜头
+          description: 家里的老将，虽然年份不小，但出片质感依然在线。
+          image: /img/equipment/canon.svg
+          link: https://www.canon.com.cn/
+        - name: GoPro 10
+          specification: 运动相机
+          description: 出行、骑行、玩水时的随身记录仪，防抖给力。
+          image: /img/equipment/gopro.svg
+          link: https://gopro.com.cn/
+    - title: 生活好物
+      description: 让日常更舒服的小装备
+      equipment_list:
+        - name: JBL 头戴式耳机
+          specification: 蓝色 / 蓝牙
+          description: 深夜写代码的专属 BGM 通道，佩戴舒服不夹头。
+          image: /img/equipment/jbl.svg
+          link: https://www.jbl.com.cn/
+        - name: 国家地理大黑包
+          specification: 双肩摄影包
+          description: 相机、电脑、耳机全塞得下，上学出行一包走天下。
+          image: /img/equipment/backpack.svg
+          link: https://www.nationalgeographic.com/

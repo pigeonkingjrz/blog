@@ -99,7 +99,9 @@ menu:
     音乐馆: /music/ || anzhiyu-icon-music
     随笔捡拾: /essay/ || anzhiyu-icon-pencil
   关于:
-    关于本人: /about/ || anzhiyu-icon-paper-plane
+    关于本站: /about/ || anzhiyu-icon-paper-plane
+    我的装备: /equipment/ || anzhiyu-icon-camera
+    随便逛逛: /random/ || anzhiyu-icon-dice
 
 # ============ 侧边栏作者卡片 ============
 # 社交链接（决定作者卡底部站名/签名区是否渲染）
@@ -175,6 +177,8 @@ footer:
             link: /music/
           - title: 留言板
             link: /comments/
+          - title: 我的装备
+            link: /equipment/
       - title: 关于
         links:
           - title: 关于本人
