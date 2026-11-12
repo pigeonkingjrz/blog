@@ -29,6 +29,20 @@ comment_barrage_config:
   accessToken: ""
   mailMd5: ""
 
+# 文章底部版权卡片（作者 / 位置 / 许可协议）
+# 主题默认 location 是「长沙」（主题作者的所在地），改成实际所在地
+post_copyright:
+  enable: true
+  decode: false
+  author_href: /
+  location: 天津
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  avatarSinks: false
+  copyright_author_img_back:
+  copyright_author_img_front:
+  copyright_author_link: /
+
 # 头像
 avatar:
   img: /img/avatar.jpg
