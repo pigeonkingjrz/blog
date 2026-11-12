@@ -61,11 +61,11 @@ nav_music:
   enable: true
   console_widescreen_music: false
   # 歌单 id：网易云歌单（替换成自己的歌单 id 即可，见 README 音乐章节）
-  id: 3778678
+  id: 8399964650
   server: netease
   volume: 0.7
   # 「播放全部」跳转的网易云歌单地址
-  all_playlist: https://music.163.com/#/playlist?id=3778678
+  all_playlist: https://music.163.com/#/playlist?id=8399964650
 
 # /music 音乐馆默认加载的歌单来源：nav_music = 与胶囊同一个歌单
 music_page_default: nav_music
