@@ -1,0 +1,16 @@
+/**
+ * 自定义样式 —— 侧边栏作者卡片
+ * 参考安知鱼 demo 的橙色渐变卡：欢迎光临徽章 + 头像 + 站名 + 签名
+ * 主题真实选择器带 ID（#aside-content >.card-widget.card-info::before），
+ * 这里用同优先级选择器靠加载顺序覆盖，不影响全站主题色
+ */
+#aside-content > .card-widget.card-info::before {
+  background: linear-gradient(-25deg, #f79960, #f26522, #f7a96b, #f26522);
+  background-size: 400% 400%;
+}
+
+/* 深色模式下稍微压暗一点，避免刺眼 */
+[data-theme="dark"] #aside-content > .card-widget.card-info::before {
+  background: linear-gradient(-25deg, #e0803f, #c94f16, #e89350, #c94f16);
+  background-size: 400% 400%;
+}

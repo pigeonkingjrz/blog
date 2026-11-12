@@ -100,3 +100,25 @@ menu:
     随笔捡拾: /essay/ || anzhiyu-icon-pencil
   关于:
     关于本人: /about/ || anzhiyu-icon-paper-plane
+
+# ============ 侧边栏作者卡片 ============
+# 社交链接（决定作者卡底部站名/签名区是否渲染）
+social:
+  Github: https://github.com/pigeonkingjrz || anzhiyu-icon-github
+  Email: mailto:2581705325@qq.com || anzhiyu-icon-envelope
+
+# 开启「欢迎光临」状态徽章（文案轮换自 skills 列表，点击卡片徽章可手动切换）
+author_status:
+  enable: true
+  skills:
+    - 欢迎光临
+    - 今天也要加油鸭
+    - 芳华待灼，砥砺深耕
+    - 欢迎再来
+
+# 注入自定义样式与脚本（作者卡橙色渐变、徽章固定显示「欢迎光临」）
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+  bottom:
+    - <script>(function(){function f(){var e=document.getElementById("author-info__sayhi");if(e)e.textContent="欢迎光临"}window.addEventListener("load",f);document.addEventListener("DOMContentLoaded",f);document.addEventListener("pjax:complete",f)})();</script>
