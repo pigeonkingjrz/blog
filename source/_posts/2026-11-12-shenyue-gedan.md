@@ -7,6 +7,7 @@ tags:
   - 歌单
   - 随笔
 description: 一份给深夜写代码、改 bug、看文档用的歌单。附站内播放器，点开就能听，不用跳走。
+cover: /img/playlist-cover.jpg
 abbrlink: efe4b2b9
 date: 2026-11-12 08:40:00
 ---
